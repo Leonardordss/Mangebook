@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo - Portal dos Livros</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
   <style>
     /* Estilos para o catálogo */
     .catalogo-container {
@@ -32,7 +32,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src= "../img/logo.JPG" alt="Logo">
+      <img src= "./img/logo.JPG" alt="Logo">
       <h1>Portal dos Livros</h1>
     </div>
     <nav>
@@ -45,34 +45,7 @@
     </nav>
   </header>
 
-  <main>
-    <section class="catalogo-container" id="catalogo">
-      <!-- Livros serão adicionados aqui -->
-    </section>
 
-    <script>
-      // Função para exibir livros do localStorage
-      function carregarLivros() {
-        const catalogo = document.getElementById('catalogo');
-        const livros = JSON.parse(localStorage.getItem('livros')) || [];
-
-        livros.forEach(livro => {
-          const livroDiv = document.createElement('div');
-          livroDiv.classList.add('livro');
-          livroDiv.innerHTML = `
-            <img src="${livro.imagem}" alt="Capa do Livro">
-            <p><strong>Título:</strong> ${livro.titulo}</p>
-            <p><strong>Autor:</strong> ${livro.autor}</p>
-            <p><strong>Ano:</strong> ${livro.ano}</p>
-          `;
-          catalogo.appendChild(livroDiv);
-        });
-      }
-
-      // Carrega os livros quando a página é carregada
-      document.addEventListener('DOMContentLoaded', carregarLivros);
-    </script>
-  </main>
 
   <!-- Rodapé -->
   <footer>

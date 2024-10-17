@@ -4,32 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - Portal dos Livros</title>
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    function validarLogin(event) {
-      event.preventDefault(); // Impede o envio do formulário
-
-      // Credenciais de exemplo
-      const usuarioCorreto = 'admin';
-      const senhaCorreta = 'senha123';
-
-      // Obtém os valores dos campos
-      const usuario = document.getElementById('username').value;
-      const senha = document.getElementById('password').value;
-
-      // Verifica as credenciais
-      if (usuario === usuarioCorreto && senha === senhaCorreta) {
-        window.location.href = 'pagina-restrita.html'; // Redireciona para a página restrita
-      } else {
-        alert('Usuário ou senha incorretos!');
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="./css/style.css" />
+ 
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="../img/logo.JPG" alt="Logo">
+      <img src="./img/logo.JPG" alt="Logo">
       <h1>Portal dos Livros</h1>
     </div>
     <nav>
@@ -45,17 +26,59 @@
   <main>
     <section class="login-form">
       <h2>Login</h2>
-      <form onsubmit="validarLogin(event)">
+      <form onsubmit="validarLogin(event)">  
         <label for="username">Usuário:</label>
         <input type="text" id="username" name="username" required />
-        
+  
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" required />
-        
+  
         <button type="submit">Entrar</button>
+
+        <li class="primeiro-acesso">
+          <a href="pagina-restrita.html">Primeiro Acesso - Cadastrar</a>
+        </li>
       </form>
     </section>
   </main>
+
+  <style>
+    .login-form {
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Espaço entre elementos */
+    }
+  
+    .primeiro-acesso {
+      margin-bottom: 15px; /* Espaço vertical específico */
+      list-style: none;
+    }
+  
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+  
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 
   <!-- Rodapé -->
   <footer>
