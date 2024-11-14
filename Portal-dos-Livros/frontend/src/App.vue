@@ -1,15 +1,38 @@
 <template>
-  <router-view />
+  <div id="app">
+
+    <BookForm :bookToEdit ="bookToEdit" @book-added="fetchBooks" @book-updated="fetchBooks" />
+
+    <BookList @edit-book="setBookToEdit" ref="bookList" />
+
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'App',
-};
-</script>
+import BookList from './components/BookList.vue';
+import BookForm from './components/BookForm.vue';
 
-<style>
-/* Estilos globais, se necessário */
-</style>
+export default {
+  data() {
+    return {
+      bookToEdit: null,
+    };
+  },
+  components: {
+    BookList,
+    BookForm,
+  },
+  methods: {
+    setBookToEdit(book) {
+      this.bookToEdit = book;
+    },
+    fetchBooks() {
+      this.$refs.bookList.fetchBooks();
+      this.bookToEdit = null;
+    },
+  },
+};
+
+</script>
 
 
